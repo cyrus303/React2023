@@ -1,0 +1,33 @@
+.search-bar {
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    /* border: 2px solid red; */
+}
