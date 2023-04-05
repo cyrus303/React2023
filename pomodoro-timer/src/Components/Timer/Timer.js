@@ -1,34 +1,24 @@
 import './Timer.css';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import Countdown from './Countdown';
 
 function Timer() {
   const [active, setActive] = useState('Pomodoro');
-  const [seconds, setSeconds] = useState(5);
-  const [minutes, setMinutes] = useState(0);
+  const [start, setStart] = useState(false);
 
-  const handleStart = (event) => {
-    console.log(active);
+  const handleStart = () => {
+    if (start) {
+      setStart(false);
+    } else {
+      setStart(true);
+    }
   };
 
   const timerType = (event) => {
     setActive(event.target.textContent);
+    setStart(false);
   };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSeconds(seconds - 1);
-
-      if (seconds === 1) {
-        setMinutes(minutes - 1);
-        setSeconds(59);
-      }
-    }, 1000);
-    if (minutes < 0) {
-      clearInterval(timer);
-    }
-    return () => clearInterval(timer);
-  });
 
   return (
     <div className="timer-container">
@@ -40,7 +30,7 @@ function Timer() {
           Pomodoro
         </p>
         <p
-          className={active === 'Short Break' ? 'selected' : ''}
+          className={active === 'Short Break' ? 'selected break' : ''}
           onClick={timerType}
         >
           Short Break
@@ -54,20 +44,10 @@ function Timer() {
       </div>
       <div className="timer">
         <p className="time">
-          {active === 'Pomodoro'
-            ? '25:00'
-            : active === 'Short Break'
-            ? '05:00'
-            : '30:00'}
+          <Countdown timerinfo={active} startTimer={start} />
         </p>
       </div>
-      <button
-        onClick={() => {
-          handleStart();
-        }}
-      >
-        Start
-      </button>
+      <button onClick={handleStart}>{start ? 'Pause' : 'Start'}</button>
     </div>
   );
 }
