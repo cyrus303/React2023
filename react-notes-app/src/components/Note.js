@@ -1,6 +1,10 @@
 import { MdDeleteForever } from 'react-icons/md';
 
-function Note({ note, deleteNote }) {
+import { useContext } from 'react';
+import NotesContext from '../context/NotesContext';
+
+function Note({ note }) {
+  const { deleteNote } = useContext(NotesContext);
   const { id, text, date } = note;
 
   const handleDeleteClick = () => {

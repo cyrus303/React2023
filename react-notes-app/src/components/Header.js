@@ -1,8 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
+import NotesContext from '../context/NotesContext';
 
-const Header = ({ handleToggleDarkMode }) => {
+const Header = () => {
+  const { setDarkMode } = useContext(NotesContext);
+
   const handleClick = () => {
-    handleToggleDarkMode((prevState) => !prevState);
+    setDarkMode((prevState) => !prevState);
   };
 
   return (

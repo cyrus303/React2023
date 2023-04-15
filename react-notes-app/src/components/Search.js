@@ -1,10 +1,14 @@
 import React from 'react';
 import { MdSearch } from 'react-icons/md';
+import { useContext } from 'react';
+import NotesContext from '../context/NotesContext';
 
-const Search = ({ handleSearchNote }) => {
+const Search = () => {
+  const { setSearchText } = useContext(NotesContext);
+
   const handleTextChange = (event) => {
     const text = event.target.value;
-    handleSearchNote(text);
+    setSearchText(text);
   };
 
   return (

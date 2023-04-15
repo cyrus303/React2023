@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useContext } from 'react';
+import NotesContext from '../context/NotesContext';
 
-const AddNote = ({ addNewNote, id }) => {
+const AddNote = () => {
+  const { addNewNote } = useContext(NotesContext);
   const [noteText, setNoteText] = useState('');
   const charLimit = 200;
   const remainingChar = charLimit - noteText.length;

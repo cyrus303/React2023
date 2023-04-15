@@ -2,14 +2,13 @@ import Note from './Note';
 import React from 'react';
 import AddNote from './AddNote';
 
-function NotesList({ notes, addNewNote, deleteNote }) {
-  // console.log(notes);
+function NotesList({ notes }) {
   return (
     <div className="notes-list">
       {notes.map((note) => {
-        return <Note note={note} key={note.id} deleteNote={deleteNote} />;
+        return <Note note={note} key={note.id} />;
       })}
-      <AddNote addNewNote={addNewNote} />
+      <AddNote />
     </div>
   );
 }
