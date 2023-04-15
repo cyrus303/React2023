@@ -1,12 +1,12 @@
-import { useEffect, useContext } from 'react';
-import NotesContext from './context/NotesContext';
-
+import { useEffect } from 'react';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
 import Header from './components/Header';
 
+import useNotesContext from './hooks/UseNotesContextHook';
+
 function App() {
-  const { fetchData, darkMode, searchText, notes } = useContext(NotesContext);
+  const { fetchData, darkMode, notes, searchText } = useNotesContext();
 
   useEffect(() => {
     fetchData();
