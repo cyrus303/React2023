@@ -5,9 +5,10 @@ import BooksContext from './context/books';
 
 function App() {
   const { fetchDataFromAPI } = useContext(BooksContext);
+
   useEffect(() => {
     fetchDataFromAPI();
-  }, []);
+  }, [fetchDataFromAPI]);
 
   return (
     <div className="app">
