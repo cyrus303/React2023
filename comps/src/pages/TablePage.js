@@ -13,7 +13,7 @@ function TablePage() {
       score: 3,
     },
     {
-      name: 'Banana',
+      name: 'Yellow',
       color: 'bg-yellow-300',
       score: 1,
     },
