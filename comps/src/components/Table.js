@@ -1,12 +1,18 @@
-function Table({ data, config }) {
-  const rendredRows = data.map((fruit) => {
-    return (
-      <tr key={fruit.name} className="border-b">
-        <td className="p-3">{fruit.name}</td>
-        <td className="p-3">
-          <div className={`p-3 m-2 ${fruit.color}`}></div>
+import { element } from 'prop-types';
+
+function Table({ data, config, keyFn }) {
+  const rendredRows = data.map((rowData) => {
+    const rendredCells = config.map((column) => {
+      return (
+        <td className="p-3" key={column.label}>
+          {column.render(rowData)}
         </td>
-        <td className="p-3">{fruit.score}</td>
+      );
+    });
+
+    return (
+      <tr className="border-b" key={keyFn(rowData)}>
+        {rendredCells}
       </tr>
     );
   });
