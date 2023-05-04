@@ -75,9 +75,16 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(state);
-    dispatch({
-      type: 'submit',
-    });
+    if (
+      state.firstName !== '' &&
+      state.lastName !== '' &&
+      state.email !== '' &&
+      state.password !== ''
+    ) {
+      dispatch({
+        type: 'submit',
+      });
+    }
   };
 
   return (
