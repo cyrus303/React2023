@@ -22,7 +22,7 @@ function CarList() {
   // const cars = carsList.data;
   const rendredCars = cars.map((car) => {
     const bold = name && car.name.toLowerCase().includes(name.toLowerCase());
-    console.log(bold);
+    // console.log(bold);
 
     return (
       <div key={car.id} className={`panel ${bold && 'bold'}`}>
